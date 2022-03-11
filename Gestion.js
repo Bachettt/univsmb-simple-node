@@ -1,4 +1,5 @@
 const fs = require("fs");
+var cluster = require('cluster');
 
 class Fichier {
 
