@@ -44,13 +44,18 @@ class Fichier {
 
 
 class GestionFichierJSON extends Fichier {
-
     LireJSON(){
-       JSON.parse() 
+        let donnée = fs.readFileSync(this.fichier,
+            {encoding:"utf8", flag:"r"});
+        let Objet = JSON.parse(donnée) 
+        console.log(Objet)
     }
 }
 
 var myFile = new Fichier('texte.txt')
+
+var myJSONfile = new GestionFichierJSON('oui.json')
+
 
 myFile.Lire();
 
@@ -60,5 +65,8 @@ myFile.Ecrire("Fichier ouvert et modifié");
 myFile.Lire();
 
 console.log("----------------------");
+
+myJSONfile.LireJSON();
+
 
 //myFile.Supprimer();
